@@ -1,0 +1,25 @@
+{
+  "name": "mercado_express",
+  "version": "1.0.0",
+  "description": "Os sistemas de mercado são amplamente utilizados em empresas do setor varejista para gerenciar e controlar as operações de compra e venda de produtos. Com um sistema de mercado bem projetado, é possível gerenciar estoques, controlar vendas, gerar relatórios e tomar decisões estratégicas com base em dados concretos. No contexto atual, em que a concorrência é cada vez mais acirrada e os consumidores são cada vez mais exigentes, a utilização de um sistema de mercado eficiente pode fazer a diferença entre o sucesso e o fracasso de um negócio.  O principal objetivo do Mercado Express é otimizar os processos de vendas, reduzindo custos, aumentando a eficiência e melhorando a experiência do cliente. Além disso, ele permite que a empresa se mantenha competitiva, oferecendo promoções e descontos relevantes e mantendo um relacionamento próximo e personalizado com seus clientes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Vinicius Congeski, Gabriel Sossai e Mateus",
+  "license": "ISC",
+  "dependencies": {
+    "@quasar/cli": "^2.4.0",
+    "@quasar/extras": "^1.16.9",
+    "axios": "^1.6.7",
+    "fastify": "^4.26.2",
+    "quasar": "^2.15.1",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.2"
+  }
+}
