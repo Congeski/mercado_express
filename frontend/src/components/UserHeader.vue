@@ -15,10 +15,24 @@ defineProps({
     <div v-if="admin" class="header">
         <img class="logo" src="../assets/mercado-logo.png">
         <div class="buttons-container">
-            <ButtonWArrow :text="'ESTOQUE'" :arrow="true"/>
-            <ButtonWArrow :text="'VENDAS'" :arrow="true"/>
-            <ButtonWArrow :text="'FUNCIONÁRIOS'" :arrow="true"/>
-            <ButtonWArrow :text="'ATUALIZAR'" :arrow="false"/>
+            <RouterLink to="/adminView" class="link-nostyling">
+                <ButtonWArrow :text="'INÍCIO'"/>
+            </RouterLink>
+            <div class="stock-button">
+                <ButtonWArrow :text="'ESTOQUE'" :arrow="true"/>
+                <div class="stock-dropdown">
+                    <ButtonWArrow :text="'PRODUTOS'" :arrow="false" :dropdown="true"/>
+                    <ButtonWArrow :text="'FORNECEDORES'" :arrow="false" :dropdown="true"/>
+                </div>
+            </div>    
+            <RouterLink to="/stockView" class="link-nostyling">
+            </RouterLink>
+            <RouterLink to="/salesView" class="link-nostyling">
+                <ButtonWArrow :text="'VENDAS'" :arrow="true"/>
+            </RouterLink>
+            <RouterLink to="/employeesView" class="link-nostyling">
+                <ButtonWArrow :text="'FUNCIONÁRIOS'" :arrow="true"/>
+            </RouterLink>
         </div>
         <RouterLink to="/adminView" class="link-nostyling">
             <div class="letter-container">
@@ -33,6 +47,10 @@ defineProps({
 </template>
 
 <style scoped>
+.stock-dropdown {
+    position: fixed;
+}
+
 .name {
     color: var(--xp-white);
     font-weight: 500;
