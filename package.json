@@ -9,18 +9,5 @@
   },
   "keywords": [],
   "author": "Vinicius Congeski, Gabriel Sossai e Mateus",
-  "license": "ISC",
-  "dependencies": {
-    "@quasar/cli": "^2.4.0",
-    "@quasar/extras": "^1.16.9",
-    "axios": "^1.6.7",
-    "fastify": "^4.26.2",
-    "quasar": "^2.15.1",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0",
-    "vuex": "^4.1.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.4.2"
-  }
+  "license": "ISC"
 }
