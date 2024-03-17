@@ -9,5 +9,10 @@
   },
   "keywords": [],
   "author": "Vinicius Congeski, Gabriel Sossai e Mateus",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  }
 }
