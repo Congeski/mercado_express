@@ -1,0 +1,105 @@
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.exit-button {
+    background: rgb(255, 69, 69);
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 700;
+    color: var(--xp-white);
+}
+
+.exit-button:hover {
+    filter:brightness(1.1);
+}
+
+.exit-button:active {
+    filter: brightness(1.2);
+}
+
+.xp-ptag {
+    padding: 0;
+    margin: 0;
+}
+
+.xp-login {
+    padding: 8px 25px;
+}
+
+.xp-input {
+    background-color: var(--xp-cream);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-size: medium;
+}
+
+.link-nostyling {
+    text-decoration: none;
+    color: inherit;
+}
+
+.div-button {
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 700;
+    background: var(--xp-cream);
+    color: var(--xp-blue);
+}
+
+.div-button:hover {
+    filter: brightness(1.3);
+    box-shadow: 5px var(--xp-white);
+}
+
+.div-button:active {
+    filter: brightness(1.8);
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--xp-blue);
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --xp-cream: #D9D9D9;
+    --xp-blue: #1774FF;
+    --xp-blue-hover: #408dff;
+    --xp-blue-darker: #125ecf;
+    --xp-white: #FCFDFF;
+}
