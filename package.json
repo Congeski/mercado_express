@@ -5,7 +5,10 @@
   "description": "Os sistemas de mercado são amplamente utilizados em empresas do setor varejista para gerenciar e controlar as operações de compra e venda de produtos. Com um sistema de mercado bem projetado, é possível gerenciar estoques, controlar vendas, gerar relatórios e tomar decisões estratégicas com base em dados concretos. No contexto atual, em que a concorrência é cada vez mais acirrada e os consumidores são cada vez mais exigentes, a utilização de um sistema de mercado eficiente pode fazer a diferença entre o sucesso e o fracasso de um negócio.  O principal objetivo do Mercado Express é otimizar os processos de vendas, reduzindo custos, aumentando a eficiência e melhorando a experiência do cliente. Além disso, ele permite que a empresa se mantenha competitiva, oferecendo promoções e descontos relevantes e mantendo um relacionamento próximo e personalizado com seus clientes.",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch backend/src/server.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "keywords": [],
   "author": "Vinicius Congeski, Gabriel Sossai e Mateus",
@@ -14,5 +17,11 @@
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "vite": "^5.1.5"
   }
 }
