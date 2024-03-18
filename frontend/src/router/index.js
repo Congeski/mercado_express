@@ -13,6 +13,7 @@ import ReportView from '@/views/ReportView.vue'
 import AddProdutoView from '@/views/AddProdutoView.vue'
 import RemoveProdutoView from '@/views/RemoveProdutoView.vue'
 import AddEmployeeView from '@/views/AddEmployeeView.vue'
+import BuyAgainView from '@/views/BuyAgainView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,7 +31,8 @@ const router = createRouter({
     { path: '/reportView', name: 'reportView', component: ReportView },
     { path: '/addProdutoView', name: 'addProdutoView', component: AddProdutoView },
     { path: '/removeProdutoView', name: 'removeProdutoView', component: RemoveProdutoView },
-    { path: '/addEmployeeView', name: 'addEmployeeView', component: AddEmployeeView }
+    { path: '/addEmployeeView', name: 'addEmployeeView', component: AddEmployeeView },
+    { path: '/buyAgainView', name: 'buyAgainView', component: BuyAgainView }
   ]
 });
 
