@@ -18,9 +18,11 @@ const usersStore = useUsersStore();
                     ABRIR CAIXA
                 </div>
             </RouterLink>
-            <div class="div-button user-option">
-                GERAR RELATÓRIO
-            </div>
+            <RouterLink to="/reportView" class="link-nostyling">
+                <div class="div-button user-option">
+                    GERAR RELATÓRIO
+                </div>
+            </RouterLink>
             <RouterLink to="/login" class="link-nostyling">
                 <div class="exit-button user-option">
                     SAIR

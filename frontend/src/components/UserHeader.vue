@@ -1,13 +1,19 @@
 <script setup>
 import ButtonWArrow from '../components/ButtonWArrow.vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 import { onMounted } from 'vue';
 
+const router = useRouter();
 let handleClickOutside;
+
 onMounted (() => {
     handleClickOutside = (event) => {
         if (event.target.id != "stock") {
             document.getElementById("stockDropdown").style.display = "none";
+        }
+
+        if (event.target.id != "letterContainer" ) {
+            document.getElementById("logoutButton").style.display = "none";
         }
     };
 
@@ -19,6 +25,10 @@ defineProps({
     name: String,
     admin: Boolean,
 });
+
+function logout() {
+    router.push('login');
+}
 
 function showHideDropdown(dropdownName) {
     if (document.getElementById(`${dropdownName}`).style.display === "flex") {
@@ -54,9 +64,9 @@ function showHideDropdown(dropdownName) {
                 <ButtonWArrow :text="'FUNCIONÁRIOS'" :arrow="false"/>
             </RouterLink>
         </div>
-        <div class="letter-container">
+        <div id="letterContainer" class="letter-container" @click="showHideDropdown('logoutButton')">
             {{ usernameLetter }}
-            <ButtonWArrow :text="'SAIR'" :arrow="false" />
+            <div id="logoutButton" class="exit-button logout" @click="logout">SAIR</div>
         </div>
     </div>
     <div v-else class="header">
@@ -66,6 +76,14 @@ function showHideDropdown(dropdownName) {
 </template>
 
 <style scoped>
+.logout {
+    display: none;
+    position: fixed;
+    top: 80px;
+    font-size: large;
+    padding: 5px 10px;
+}
+
 .dropdown-button {
     position: fixed;
     display: none;
@@ -90,6 +108,7 @@ function showHideDropdown(dropdownName) {
     border-radius: 50%;
     border: 2px solid var(--xp-white);
     margin: 15px 15px 0 0;
+    cursor: pointer;
 }
 
 .buttons-container {

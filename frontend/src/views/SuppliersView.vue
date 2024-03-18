@@ -17,7 +17,6 @@ const productsStore = useProductsStore();
             <div class="buttons-container">
                 <div class="div-button">NOVA COMPRA</div>
                 <div class="div-button">ADICIONAR FORNECEDOR</div>
-                <div class="exit-button">REMOVER FORNECEDOR</div>
             </div>
         </div>
     </div>
@@ -42,6 +41,7 @@ const productsStore = useProductsStore();
 }
 
 .suppliers-table-container {
+    margin-top: 40px;
     width: 80%;
     background-color: var(--xp-cream);
     border-radius: 10px;

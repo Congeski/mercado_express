@@ -17,7 +17,6 @@ const usersStore = useUsersStore();
             <div class="buttons-container">
                 <div class="div-button">COMPRAR NOVAMENTE</div>
                 <div class="div-button">ADICIONAR PRODUTO</div>
-                <div class="exit-button">REMOVER PRODUTO</div>
             </div>
         </div>
     </div>
@@ -45,6 +44,7 @@ const usersStore = useUsersStore();
     width: 80%;
     background-color: var(--xp-cream);
     border-radius: 10px;
-    margin-top: 70px;
+    margin-top: 30px;
+    max-height: 72vh;
 }
 </style>

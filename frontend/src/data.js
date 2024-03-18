@@ -39,4 +39,11 @@ const suppliers = [
     { name: "JoséGerandlvincentinoLTDA", cnpj: "0003928834-53", cep: "871044475"},
 ]
 
-export { users, products, suppliers }
+const employees = [
+    {code: "001", name: "Lucas Gabriel Baldo", cpf: "000000000-00" , email: "lucasgabriel@gmail.com", role: "caixa" },
+    {code: "002", name: "Renan João dos Santos", cpf: "000000000-00" , email: "renanjoaodss@gmail.com", role: "caixa" },
+    {code: "003", name: "Claudio Maia", cpf: "000000000-00" , email: "claudi2011@gmail.como" , role: "marketing" },
+    {code: "004", name: "Fabio Meneses" , cpf: "000000000-00" , email: "fabiomeneses2834@gmail.com" , role: "gerente" },
+]
+
+export { users, products, suppliers, employees }
