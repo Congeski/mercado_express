@@ -54,11 +54,10 @@ function showHideDropdown(dropdownName) {
                 <ButtonWArrow :text="'FUNCIONÁRIOS'" :arrow="false"/>
             </RouterLink>
         </div>
-        <RouterLink to="/adminView" class="link-nostyling">
-            <div class="letter-container">
-                {{ usernameLetter }}
-            </div>
-        </RouterLink>
+        <div class="letter-container">
+            {{ usernameLetter }}
+            <ButtonWArrow :text="'SAIR'" :arrow="false" />
+        </div>
     </div>
     <div v-else class="header">
         <img class="logo" src="../assets/mercado-logo.png">
