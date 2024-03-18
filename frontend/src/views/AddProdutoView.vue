@@ -27,38 +27,82 @@
   
     router.push('/stockView');
   };
+
+  function goBack() {
+    router.push('/stockView');
+  }
   </script>
 
 <template>
     <div class="page-container">  
-      <h2>Adicionar Produto</h2>
-      <div stock-container>
-        <form @submit.prevent="adicionarProduto">
-        <div>
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" v-model="novoProduto.nome">
-        </div>
-        <div>
-          <label for="id">ID:</label>
-          <input type="text" id="id" v-model="novoProduto.id">
-        </div>
-        <div>
-          <label for="preco">Preço:</label>
-          <input type="number" id="preco" v-model.number="novoProduto.preco">
-        </div>
-        <div>
-          <label for="quantidade">Quantidade:</label>
-          <input type="number" id="quantidade" v-model.number="novoProduto.quantidade">
-        </div>
-        <div>
-          <button class="div-button" type="submit">Adicionar Produto</button>
-        </div>
-      </form>
+      <div class="add-product">
+          <h2>Adicionar Produto</h2>
+          <div>
+            <form @submit.prevent="adicionarProduto" class="product-form">
+            <div>
+              <label for="nome">Nome </label>  
+              <input class="xp-input" type="text" id="nome" v-model="novoProduto.nome">
+            </div>
+            <div>
+              <label for="id">Id </label>  
+              <input class="xp-input" type="text" id="id" v-model="novoProduto.id">
+            </div>
+            <div>
+              <label for="preco">Preço </label>
+              <input type="number" class="xp-input" id="preco" v-model.number="novoProduto.preco">
+            </div>
+            <div>
+              <label for="quantidade">Quantidade </label>
+              <input type="number" class="xp-input" id="quantidade" v-model.number="novoProduto.quantidade">
+            </div>
+            <div class="buttons-container">
+              <button class="div-button" type="submit">Adicionar Produto</button>
+              <button class="exit-button" type="reset" @click="goBack">Cancelar</button>
+            </div>
+          </form>
+          </div>
       </div>
     </div>
   </template>
   
   <style scoped>
+    .buttons-container {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+
+    .exit-button {
+        margin-left: 10px;
+    }
+
+    .div-button {
+        padding: 3px;
+    }
+
+    .product-form {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .xp-input {
+        background: var(--xp-white);
+    }
+
+    .add-product {
+        background: var(--xp-cream);
+        border-radius: 10px;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .div-button {
         background: var(--xp-blue);
         color: var(--xp-white);

@@ -9,10 +9,6 @@ const givenUsername = ref('');
 const givenPassword = ref('');
 
 function login() {
-    // For development purpose
-    givenUsername.value = 'funcionario';
-    givenPassword.value = 'teste123';
-
     const loggedIn = usersStore.login(givenUsername.value, givenPassword.value);
     if(!loggedIn) {
         alert("Usuário e/ou senha incorreto(s)");

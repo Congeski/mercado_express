@@ -37,8 +37,6 @@ defineProps({
             <td>{{ product.id }}</td>
             <td>R$ {{ (product.price).toFixed(2) }}</td>
             <td>{{ product.quantity }}</td>
-            <td><div class="div-button table-button">EDITAR</div></td>
-            <td><div class="exit-button table-button">REMOVER</div></td>
         </tr>
     </table>
     <table v-else-if="suppliers" class="products-table">
