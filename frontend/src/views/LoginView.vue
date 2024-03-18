@@ -10,7 +10,7 @@ const givenPassword = ref('');
 
 function login() {
     // For development purpose
-    givenUsername.value = 'funcionario';
+    givenUsername.value = 'teste';
     givenPassword.value = 'teste123';
 
     const loggedIn = usersStore.login(givenUsername.value, givenPassword.value);

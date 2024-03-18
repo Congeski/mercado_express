@@ -10,12 +10,10 @@ const usersStore = useUsersStore();
 <template>
     <div v-if="usersStore.loggedUser" class="page-container">
         <UserHeader :usernameLetter="usersStore.usernameLetter" :admin="true"/>
-        <div class="info-container">
-            <HelloUser :name="usersStore.currentUser"/>
-            <div class="graph-container">
-                 <img class="graph" src="../assets/grafico-queridometro.png">
-                 <p class="xp-ptag">Queridômetro</p>
-            </div>
+        <HelloUser :name="usersStore.currentUser"/>
+        <div class="graph-container">
+            <img class="graph" src="../assets/grafico-queridometro.png">
+            <p class="xp-ptag">Queridômetro</p>
         </div>
     </div>
     <LoginNeeded v-else/>

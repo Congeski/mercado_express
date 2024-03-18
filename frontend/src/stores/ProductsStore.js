@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { products } from "@/data";
+import { products, suppliers } from "@/data";
 
 export const useProductsStore = defineStore("ProductsStore", {
     state: () => ({
@@ -12,6 +12,7 @@ export const useProductsStore = defineStore("ProductsStore", {
             { name: "Feijão", price: 4.50, id: '002', quantity: 2 },
             { name: "Café", price: 4.00, id: '009', quantity: 2 },
         ],
+        registeredSuppliers: suppliers,
     }),
 
     actions: {
