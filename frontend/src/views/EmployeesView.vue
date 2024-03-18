@@ -15,7 +15,7 @@ const employeesStore = useEmployeesStore();
         <div class="table-container">
             <ProductsTable :employees="employeesStore.employees"/>
             <div class="buttons-container">
-                <div class="div-button">ADICIONAR FUNCIONARIO</div>
+                <RouterLink class="link-nostyling" to="/addEmployeeView"><div class="div-button">ADICIONAR FUNCIONARIO</div></RouterLink>
             </div>
         </div>
     </div>

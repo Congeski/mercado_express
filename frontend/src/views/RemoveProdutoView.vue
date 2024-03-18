@@ -29,7 +29,6 @@
     }
 
   const removerProduto = () => {
-    // Encontra o índice do produto na lista de produtos
     const index = products.findIndex(prod => prod.id === produtoId.value);
     
     if (index !== -1) {
