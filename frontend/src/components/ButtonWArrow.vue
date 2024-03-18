@@ -1,6 +1,4 @@
 <script setup>
-import { defineProps } from 'vue';
-
 defineProps ({
     text: String,
     arrow: Boolean,
@@ -18,7 +16,7 @@ defineProps ({
             265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
         </svg>
     </div>
-    <div v-else class="button-arrow dropdown">
+    <div v-else class="dropdown">
         {{ text }}
     </div>
 </template>
@@ -26,10 +24,18 @@ defineProps ({
 <style scoped>
 .dropdown {
     background: var(--xp-blue-hover);
+    color: var(--xp-white);
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 15px;
+    height: 40px;
 }
 
 .dropdown:hover {
-    filter: brightness(1.3);
+    filter: brightness(1.2);
 }
 
 .arrow {

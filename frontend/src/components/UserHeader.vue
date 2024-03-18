@@ -1,7 +1,18 @@
 <script setup>
-import { defineProps } from 'vue';
 import ButtonWArrow from '../components/ButtonWArrow.vue';
 import { RouterLink } from 'vue-router';
+import { onMounted } from 'vue';
+
+let handleClickOutside;
+onMounted (() => {
+    handleClickOutside = (event) => {
+        if (event.target.id != "stock") {
+            document.getElementById("stockDropdown").style.display = "none";
+        }
+    };
+
+    window.addEventListener('click', handleClickOutside);
+});
 
 defineProps({
     usernameLetter: String,
@@ -9,6 +20,13 @@ defineProps({
     admin: Boolean,
 });
 
+function showHideDropdown(dropdownName) {
+    if (document.getElementById(`${dropdownName}`).style.display === "flex") {
+        document.getElementById(`${dropdownName}`).style.display = "none";
+    } else {
+        document.getElementById(`${dropdownName}`).style.display = "flex";
+    }
+}
 </script>
 
 <template>
@@ -18,20 +36,22 @@ defineProps({
             <RouterLink to="/adminView" class="link-nostyling">
                 <ButtonWArrow :text="'INÍCIO'"/>
             </RouterLink>
-            <div class="stock-button">
-                <ButtonWArrow :text="'ESTOQUE'" :arrow="true"/>
-                <div class="stock-dropdown">
-                    <ButtonWArrow :text="'PRODUTOS'" :arrow="false" :dropdown="true"/>
-                    <ButtonWArrow :text="'FORNECEDORES'" :arrow="false" :dropdown="true"/>
+            <div class="stock-button" @click="showHideDropdown('stockDropdown')">
+                <ButtonWArrow id="stock" :text="'ESTOQUE'" :arrow="true"/>
+                <div id="stockDropdown" class="dropdown-button">
+                    <RouterLink to="/stockView" class="link-nostyling">
+                        <ButtonWArrow :text="'PRODUTOS'" :arrow="false" :dropdown="true"/>
+                    </RouterLink>
+                    <RouterLink to="/suppliersView" class="link-nostyling">
+                        <ButtonWArrow :text="'FORNECEDORES'" :arrow="false" :dropdown="true"/>
+                    </RouterLink>
                 </div>
-            </div>    
-            <RouterLink to="/stockView" class="link-nostyling">
-            </RouterLink>
+            </div>
             <RouterLink to="/salesView" class="link-nostyling">
-                <ButtonWArrow :text="'VENDAS'" :arrow="true"/>
+                <ButtonWArrow :text="'VENDAS'" :arrow="false"/>
             </RouterLink>
             <RouterLink to="/employeesView" class="link-nostyling">
-                <ButtonWArrow :text="'FUNCIONÁRIOS'" :arrow="true"/>
+                <ButtonWArrow :text="'FUNCIONÁRIOS'" :arrow="false"/>
             </RouterLink>
         </div>
         <RouterLink to="/adminView" class="link-nostyling">
@@ -47,8 +67,10 @@ defineProps({
 </template>
 
 <style scoped>
-.stock-dropdown {
+.dropdown-button {
     position: fixed;
+    display: none;
+    flex-direction: column;
 }
 
 .name {

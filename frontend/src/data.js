@@ -33,4 +33,10 @@ const products = [
     { name: "Frango", price: 6.00, id: '015', quantity: 50 }
 ];
 
-export { users, products }
+const suppliers = [
+    { name: "AgroCelsoLTDA", cnpj: "0026352830-44", cep: "87103375"},
+    { name: "ExtraBatatacamp", cnpj: "002933394-14", cep: "87356375"},
+    { name: "JoséGerandlvincentinoLTDA", cnpj: "0003928834-53", cep: "871044475"},
+]
+
+export { users, products, suppliers }
