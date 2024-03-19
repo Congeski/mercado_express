@@ -43,23 +43,23 @@
         <div>
           <form @submit.prevent="adicionarFuncionario" class="product-form">
           <div>
-            <label for="code">Cód</label>  
+            <label for="code">Cód </label>  
             <input class="xp-input" type="text" id="code" v-model="novoFuncionario.code">
           </div>
           <div>
-            <label for="name">Nome</label>  
+            <label for="name">Nome </label>  
             <input class="xp-input" type="text" id="name" v-model="novoFuncionario.name">
           </div>
           <div>
-            <label for="cpf">CPF</label>
+            <label for="cpf">CPF </label>
             <input type="text" class="xp-input" id="cpf" v-model="novoFuncionario.cpf">
           </div>
           <div>
-            <label for="email">eMail</label>
+            <label for="email">eMail </label>
             <input type="email" class="xp-input" id="email" v-model="novoFuncionario.email">
           </div>
           <div>
-            <label for="role">Cargo</label>
+            <label for="role">Cargo </label>
             <input type="text" class="xp-input" id="role" v-model="novoFuncionario.role">
           </div>
           <div class="buttons-container">

@@ -1,4 +1,19 @@
 <script setup>
+import { employees } from '../data';
+import { getCurrentInstance } from 'vue';
+
+const instance = getCurrentInstance();
+
+function removeEmployee(employeeName) {
+    employees.forEach(employee => {
+        if (employee.name === employeeName) {
+            employees.pop(employee);
+        }
+
+        instance?.proxy?.$forceUpdate();    
+    });
+}
+
 defineProps({
     cart: Array,
     stock: Array,
@@ -49,8 +64,6 @@ defineProps({
             <td class="text-left">{{ supplier.name }}</td>
             <td>{{ supplier.cnpj }}</td>
             <td>{{ supplier.cep }}</td>
-            <td><div class="div-button table-button">EDITAR</div></td>
-            <td><div class="exit-button table-button">REMOVER</div></td>
         </tr>
     </table>
     <table v-else-if="employees" class="products-table">
@@ -67,8 +80,7 @@ defineProps({
             <td>{{ employee.cpf }}</td>
             <td>{{ employee.email }}</td>
             <td>{{ employee.role }}</td>
-            <td><div class="div-button table-button">EDITAR</div></td>
-            <td><div class="exit-button table-button">REMOVER</div></td>
+            <td><div class="exit-button table-button" @click="removeEmployee(employee.name)" >REMOVER</div></td>
         </tr>
     </table>
 </template>
