@@ -9,9 +9,6 @@ const givenUsername = ref('');
 const givenPassword = ref('');
 
 function login() {
-    
-    givenUsername.value = 'teste'
-    givenPassword.value = 'teste123'
     const loggedIn = usersStore.login(givenUsername.value, givenPassword.value);
 
     if(!loggedIn) {
