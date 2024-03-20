@@ -13,7 +13,7 @@ const usersStore = useUsersStore();
     <div v-if="usersStore.loggedUser" class="page-container">
         <UserHeader :usernameLetter="usersStore.usernameLetter" :admin="true"/>
         <div class="stock-container">
-            <ProductsTable :stock="productsStore.allProducts"/>
+            <ProductsTable :stock="productsStore.allProducts" :forStock="true"/>
             <div class="buttons-container">
                 <RouterLink class="link-nostyling" to="/addProdutoView"><div class="div-button">ADICIONAR PRODUTO</div></RouterLink>
             </div>

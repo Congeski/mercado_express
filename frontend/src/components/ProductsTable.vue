@@ -1,38 +1,40 @@
 <script setup>
 import { employees, products, suppliers } from '../data';
-import { getCurrentInstance } from 'vue';
+import { getCurrentInstance, onMounted } from 'vue';
 import { useProductsStore } from '@/stores/ProductsStore';
 
 const instance = getCurrentInstance();
 const productsStore = useProductsStore();
 
 
-function removeEmployee(employeeName) {
-    employees.forEach(employee => {
-        if (employee.name === employeeName) {
-            employees.pop(employee);
-        }
-    });
+// function removeEmployee(employeeIndex) {
+//     employees.splice(employeeIndex, 1);
 
-    instance?.proxy?.$forceUpdate();    
-}
+//     instance?.proxy?.$forceUpdate();    
+// }
 
-function removeProductFromStock(productId) {
-    products.forEach(product => {
-        if (product.id === productId) {
-            products.pop(product);
-        }
-    });
+// function removeProductFromStock(productId) {
+//     products.forEach(product => {
+//         if (product.id === productId) {
+//             products.pop(product);
+//         }
+//     });
     
-    instance?.proxy?.$forceUpdate();
-}
+//     instance?.proxy?.$forceUpdate();
+// }
 
-function removeSupplier(cnpj) {
-    suppliers.forEach(supplier => {
-        if (supplier.cnpj === cnpj) {
-            suppliers.pop(supplier);
-        }
-    });
+// function removeSupplier(cnpj) {
+//     suppliers.forEach(supplier => {
+//         if (supplier.cnpj === cnpj) {
+//             suppliers.pop(supplier);
+//         }
+//     });
+
+//     instance?.proxy?.$forceUpdate();
+// }
+
+function removeFrom(where, index) {
+    where.splice(index, 1);
 
     instance?.proxy?.$forceUpdate();
 }
@@ -43,14 +45,23 @@ function removeFromCart(index) {
 
 defineProps({
     cart: Array,
+    forCart: { type: Boolean, default: false },
     stock: Array,
+    forStock: { type: Boolean, default: false },
     suppliers: Array,
+    forSuppliers: { type: Boolean, default: false },
     employees: Array,
+    forEmployees: { type: Boolean, default: false },
+
 });
+
+onMounted(() => {
+    
+})
 </script>
 
 <template>
-    <table v-if="cart" class="products-table">
+    <table v-if="forCart" class="products-table">
         <tr>
             <th>Nome</th>
             <th>Quantidade</th>
@@ -67,7 +78,7 @@ defineProps({
             <td><div class="exit-button table-button" @click="removeFromCart(index)">REMOVER</div></td>
         </tr>
     </table>
-    <table v-else-if="stock" class="products-table">
+    <table v-if="forStock" class="products-table">
         <tr>
             <th>Nome</th>
             <th>Identificador</th>
@@ -79,10 +90,10 @@ defineProps({
             <td>{{ product.id }}</td>
             <td>R$ {{ (product.price).toFixed(2) }}</td>
             <td>{{ product.quantity }}</td>
-            <td><div class="exit-button table-button" @click="removeProductFromStock(product.id)" >REMOVER</div></td>
+            <td><div class="exit-button table-button" @click="removeFrom(products, index)" >REMOVER</div></td>
         </tr>
     </table>
-    <table v-else-if="suppliers" class="products-table">
+    <table v-if="forSuppliers" class="products-table">
         <tr>
             <th>Nome</th>
             <th>CNPJ</th>
@@ -92,10 +103,10 @@ defineProps({
             <td class="text-left">{{ supplier.name }}</td>
             <td>{{ supplier.cnpj }}</td>
             <td>{{ supplier.cep }}</td>
-            <td><div class="exit-button table-button" @click="removeSupplier(supplier.cnpj)">REMOVER</div></td>
+            <td><div class="exit-button table-button" @click="removeFrom(suppliers, index)">REMOVER</div></td>
         </tr>
     </table>
-    <table v-else-if="employees" class="products-table">
+    <table v-if="forEmployees" class="products-table">
         <tr>
             <th>Cód.</th>
             <th>Nome</th>
@@ -109,7 +120,7 @@ defineProps({
             <td>{{ employee.cpf }}</td>
             <td>{{ employee.email }}</td>
             <td>{{ employee.role }}</td>
-            <td><div class="exit-button table-button" @click="removeEmployee(employee.name)" >REMOVER</div></td>
+            <td><div class="exit-button table-button" @click="removeFrom(employees, index)" >REMOVER</div></td>
         </tr>
     </table>
 </template>
