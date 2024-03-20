@@ -2,13 +2,13 @@
 
 const users = [
     {
-        login: "teste",
+        login: "001",
         password: "teste123",
         name: "Fabio",
         admin: true,
     },
     {
-        login: "funcionario",
+        login: "002",
         password: "teste123",
         name: "Renan",
         admin: false,

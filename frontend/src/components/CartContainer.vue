@@ -59,6 +59,10 @@ function getTotalValue() {
         totalValue.value += (product.quantity || product.weight) * product.price;
     });
 }
+
+function reducePrice(priceReduced) {
+    totalValue.value -= priceReduced;
+}
 </script>
 
 <template>
@@ -107,7 +111,7 @@ function getTotalValue() {
             </div>
         </div>
         <div class="table-container">
-            <ProductsTable :cart="productsStore.currentCart" :forCart="true"/>
+            <ProductsTable :cart="productsStore.currentCart" :forCart="true" @recalculate="reducePrice"/>
         </div>
     </div>
     <PaymentModal v-if="showPaymentModal" :paymentMethod="paymentMethod"

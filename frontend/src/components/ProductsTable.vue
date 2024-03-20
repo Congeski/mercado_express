@@ -2,36 +2,12 @@
 import { employees, products, suppliers } from '../data';
 import { getCurrentInstance, onMounted } from 'vue';
 import { useProductsStore } from '@/stores/ProductsStore';
+import { defineEmits } from 'vue';
 
 const instance = getCurrentInstance();
 const productsStore = useProductsStore();
 
-
-// function removeEmployee(employeeIndex) {
-//     employees.splice(employeeIndex, 1);
-
-//     instance?.proxy?.$forceUpdate();    
-// }
-
-// function removeProductFromStock(productId) {
-//     products.forEach(product => {
-//         if (product.id === productId) {
-//             products.pop(product);
-//         }
-//     });
-    
-//     instance?.proxy?.$forceUpdate();
-// }
-
-// function removeSupplier(cnpj) {
-//     suppliers.forEach(supplier => {
-//         if (supplier.cnpj === cnpj) {
-//             suppliers.pop(supplier);
-//         }
-//     });
-
-//     instance?.proxy?.$forceUpdate();
-// }
+const emit = defineEmits(['recalculate']);
 
 function removeFrom(where, index) {
     where.splice(index, 1);
@@ -39,8 +15,9 @@ function removeFrom(where, index) {
     instance?.proxy?.$forceUpdate();
 }
 
-function removeFromCart(index) {
+function removeFromCart(index, priceReduced) {
     productsStore.removeProductFromCart(index);
+    emit('recalculate', priceReduced);
 }
 
 defineProps({
@@ -54,10 +31,6 @@ defineProps({
     forEmployees: { type: Boolean, default: false },
 
 });
-
-onMounted(() => {
-    
-})
 </script>
 
 <template>
@@ -75,7 +48,9 @@ onMounted(() => {
             <td>R$ {{ ((product.quantity || product.weight) * product.price).toFixed(2) }}</td>
             <td>{{ product.id }}</td>
             <td>R$ {{ (product.price).toFixed(2) }}</td>
-            <td><div class="exit-button table-button" @click="removeFromCart(index)">REMOVER</div></td>
+            <td><div class="exit-button table-button" 
+                @click="removeFromCart(index, ((product.quantity || product.weight) * product.price).toFixed(2))"
+            >REMOVER</div></td>
         </tr>
     </table>
     <table v-if="forStock" class="products-table">

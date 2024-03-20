@@ -32,7 +32,6 @@ const router = createRouter({
     { path: '/addProdutoView', name: 'addProdutoView', component: AddProdutoView },
     { path: '/addEmployeeView', name: 'addEmployeeView', component: AddEmployeeView },
     { path: '/addSupplierView', name: 'addSupplierView', component: AddSupplierView },
-    { path: '/removeProdutoView', name: 'removeProdutoView', component: RemoveProdutoView },
     { path: '/addEmployeeView', name: 'addEmployeeView', component: AddEmployeeView },
     { path: '/buyAgainView', name: 'buyAgainView', component: BuyAgainView }
   ]
