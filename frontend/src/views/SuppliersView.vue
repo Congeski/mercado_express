@@ -16,7 +16,9 @@ const productsStore = useProductsStore();
             <ProductsTable :suppliers="productsStore.registeredSuppliers" />
             <div class="buttons-container">
                 <div class="div-button">NOVA COMPRA</div>
-                <div class="div-button">ADICIONAR FORNECEDOR</div>
+                <RouterLink to="/addSupplierView" class="link-nostyling">
+                    <div class="div-button">ADICIONAR FORNECEDOR</div>
+                </RouterLink>
             </div>
         </div>
     </div>

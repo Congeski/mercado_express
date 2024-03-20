@@ -1,17 +1,44 @@
 <script setup>
-import { employees } from '../data';
+import { employees, products, suppliers } from '../data';
 import { getCurrentInstance } from 'vue';
+import { useProductsStore } from '@/stores/ProductsStore';
 
 const instance = getCurrentInstance();
+const productsStore = useProductsStore();
+
 
 function removeEmployee(employeeName) {
     employees.forEach(employee => {
         if (employee.name === employeeName) {
             employees.pop(employee);
         }
-
-        instance?.proxy?.$forceUpdate();    
     });
+
+    instance?.proxy?.$forceUpdate();    
+}
+
+function removeProductFromStock(productId) {
+    products.forEach(product => {
+        if (product.id === productId) {
+            products.pop(product);
+        }
+    });
+    
+    instance?.proxy?.$forceUpdate();
+}
+
+function removeSupplier(cnpj) {
+    suppliers.forEach(supplier => {
+        if (supplier.cnpj === cnpj) {
+            suppliers.pop(supplier);
+        }
+    });
+
+    instance?.proxy?.$forceUpdate();
+}
+
+function removeFromCart(index) {
+    productsStore.removeProductFromCart(index);
 }
 
 defineProps({
@@ -37,7 +64,7 @@ defineProps({
             <td>R$ {{ ((product.quantity || product.weight) * product.price).toFixed(2) }}</td>
             <td>{{ product.id }}</td>
             <td>R$ {{ (product.price).toFixed(2) }}</td>
-            <td><div class="exit-button table-button">REMOVER</div></td>
+            <td><div class="exit-button table-button" @click="removeFromCart(index)">REMOVER</div></td>
         </tr>
     </table>
     <table v-else-if="stock" class="products-table">
@@ -52,6 +79,7 @@ defineProps({
             <td>{{ product.id }}</td>
             <td>R$ {{ (product.price).toFixed(2) }}</td>
             <td>{{ product.quantity }}</td>
+            <td><div class="exit-button table-button" @click="removeProductFromStock(product.id)" >REMOVER</div></td>
         </tr>
     </table>
     <table v-else-if="suppliers" class="products-table">
@@ -64,6 +92,7 @@ defineProps({
             <td class="text-left">{{ supplier.name }}</td>
             <td>{{ supplier.cnpj }}</td>
             <td>{{ supplier.cep }}</td>
+            <td><div class="exit-button table-button" @click="removeSupplier(supplier.cnpj)">REMOVER</div></td>
         </tr>
     </table>
     <table v-else-if="employees" class="products-table">
@@ -121,6 +150,6 @@ tr:nth-child(even) {
 }
 
 .products-table th {
-    width: 30%;
+    width: 35%;
 }
 </style>
