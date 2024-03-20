@@ -15,6 +15,7 @@ const usersStore = useUsersStore();
         <div class="stock-container">
             <ProductsTable :stock="productsStore.allProducts" :forStock="true"/>
             <div class="buttons-container">
+                <RouterLink class="link-nostyling" to="/buyAgainView"><div class="div-button">COMPRAR NOVAMENTE</div></RouterLink>
                 <RouterLink class="link-nostyling" to="/addProdutoView"><div class="div-button">ADICIONAR PRODUTO</div></RouterLink>
             </div>
         </div>
