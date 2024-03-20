@@ -1,7 +1,7 @@
 <script setup>
-import ButtonWArrow from '../components/ButtonWArrow.vue';
+import ButtonWArrow from '@/components/ButtonWArrow.vue';
 import { RouterLink, useRouter } from 'vue-router';
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 
 const router = useRouter();
 let handleClickOutside;
@@ -18,6 +18,10 @@ onMounted (() => {
     };
 
     window.addEventListener('click', handleClickOutside);
+});
+
+onUnmounted (() => {
+    window.removeEventListener('click', handleClickOutside);
 });
 
 defineProps({

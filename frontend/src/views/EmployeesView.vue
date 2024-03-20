@@ -13,7 +13,7 @@ const employeesStore = useEmployeesStore();
     <div v-if="usersStore.loggedUser" class="page-container">
         <UserHeader :usernameLetter="usersStore.usernameLetter" :admin="true"/>
         <div class="table-container">
-            <ProductsTable :employees="employeesStore.employees"/>
+            <ProductsTable :employees="employeesStore.employees" :forEmployees="true"/>
             <div class="buttons-container">
                 <RouterLink class="link-nostyling" to="/addEmployeeView"><div class="div-button">ADICIONAR FUNCIONARIO</div></RouterLink>
             </div>

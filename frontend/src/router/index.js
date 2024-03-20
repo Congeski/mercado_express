@@ -11,8 +11,8 @@ import EmployeesView from '@/views/EmployeesView.vue'
 import SuppliersView from '@/views/SuppliersView.vue'
 import ReportView from '@/views/ReportView.vue'
 import AddProdutoView from '@/views/AddProdutoView.vue'
-import RemoveProdutoView from '@/views/RemoveProdutoView.vue'
 import AddEmployeeView from '@/views/AddEmployeeView.vue'
+import AddSupplierView from '@/views/AddSupplierView.vue'
 import BuyAgainView from '@/views/BuyAgainView.vue'
 
 const router = createRouter({
@@ -30,6 +30,8 @@ const router = createRouter({
     { path: '/suppliersView', name: 'suppliersView', component: SuppliersView },
     { path: '/reportView', name: 'reportView', component: ReportView },
     { path: '/addProdutoView', name: 'addProdutoView', component: AddProdutoView },
+    { path: '/addEmployeeView', name: 'addEmployeeView', component: AddEmployeeView },
+    { path: '/addSupplierView', name: 'addSupplierView', component: AddSupplierView },
     { path: '/removeProdutoView', name: 'removeProdutoView', component: RemoveProdutoView },
     { path: '/addEmployeeView', name: 'addEmployeeView', component: AddEmployeeView },
     { path: '/buyAgainView', name: 'buyAgainView', component: BuyAgainView }

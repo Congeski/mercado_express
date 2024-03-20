@@ -13,10 +13,11 @@ const productsStore = useProductsStore();
     <div v-if="usersStore.loggedUser" class="page-container">
         <UserHeader :usernameLetter="usersStore.usernameLetter" :admin="true"/>
         <div class="suppliers-table-container">
-            <ProductsTable :suppliers="productsStore.registeredSuppliers" />
+            <ProductsTable :suppliers="productsStore.registeredSuppliers" :forSuppliers="true"/>
             <div class="buttons-container">
-                <div class="div-button">NOVA COMPRA</div>
-                <div class="div-button">ADICIONAR FORNECEDOR</div>
+                <RouterLink to="/addSupplierView" class="link-nostyling">
+                    <div class="div-button">ADICIONAR FORNECEDOR</div>
+                </RouterLink>
             </div>
         </div>
     </div>

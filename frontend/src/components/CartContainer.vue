@@ -107,7 +107,7 @@ function getTotalValue() {
             </div>
         </div>
         <div class="table-container">
-            <ProductsTable :cart="productsStore.currentCart"/>
+            <ProductsTable :cart="productsStore.currentCart" :forCart="true"/>
         </div>
     </div>
     <PaymentModal v-if="showPaymentModal" :paymentMethod="paymentMethod"

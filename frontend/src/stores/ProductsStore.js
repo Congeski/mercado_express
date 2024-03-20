@@ -16,6 +16,10 @@ export const useProductsStore = defineStore("ProductsStore", {
     }),
 
     actions: {
-        
+        removeProductFromCart(index) {
+            console.log(index);
+
+            this.currentCart.splice(index, 1);
+        }
     }
 });
